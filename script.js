@@ -1,6 +1,7 @@
 const buttonNo = document.querySelector('#no');
 const buttonYes = document.querySelector('#yes');
-const sound = document.getElementById('no-sound');
+const soundNo = document.getElementById('no-sound');
+const soundYes = document.getElementById('yes-sound'); // Cambia este nombre si es necesario
 
 let fontSize = 2;
 let messages = [
@@ -18,9 +19,13 @@ buttonNo.addEventListener('click', () => {
   const indexRandom = Math.floor(Math.random() * messages.length);
   buttonNo.textContent = messages[indexRandom];
 
-  sound.play(); // Reproduce el sonido cuando se hace clic en "No"
+  soundNo.play(); // Reproduce el sonido cuando se hace clic en "No"
 });
 
 buttonYes.addEventListener('click', () => {
   document.querySelector('#message').style.display = 'flex';
+  
+  // Reinicia y reproduce la canción de fondo
+  soundYes.currentTime = 0; // Reinicia la canción
+  soundYes.play(); // Reproduce la canción de fondo cuando se hace clic en "Sí"
 });
